@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dt.wriststrap.mapper.WSMapper">
+
+    <resultMap id="wristStrapBean" type="com.dt.wriststrap.bean.WristStrapBean">
+        <result column="time" property="time"/>
+        <result column="heartBeat" property="heartBeat"/>
+        <result column="step" property="step"/>
+        <result column="temperature" property="temperature"/>
+    </resultMap>
+
+    <insert id="addWristStrap">INSERT INTO tb_wriststrap VALUES (#{time},#{heartBeat},#{step},#{temperature})</insert>
+
+    <select id="queryWristStrap"
+            resultMap="wristStrapBean">SELECT * FROM tb_wriststrap ORDER BY time DESC </select>
+</mapper>
